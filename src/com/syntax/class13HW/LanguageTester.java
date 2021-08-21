@@ -7,6 +7,8 @@ public class LanguageTester {
 		
 		Language check = new Language();
 		check.checkLanguage("French");
+		check.checkLanguage("Mandarin");
+		check.checkLanguage("Russian");
 
 	}
 

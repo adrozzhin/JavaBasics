@@ -2,11 +2,11 @@ package com.syntax.class13HW;
 
 public class Language {
 
-	void checkLanguage(String language) {
+	void checkLanguage(String country) {
 
 		String greeting;
 
-		switch (language) {
+		switch (country) {
 		case "English":
 			greeting = "Hello!";
 			break;
@@ -17,10 +17,10 @@ public class Language {
 			greeting = "Privet!";
 			break;
 		case "French":
-			greeting = "Bonjour";
+			greeting = "Bonjour!";
 			break;
 		case "Spanish":
-			greeting = "Hola";
+			greeting = "Hola!";
 			break;
 		default:
 			greeting = "Unknown language";
