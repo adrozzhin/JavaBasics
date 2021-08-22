@@ -10,7 +10,7 @@ public class StringDemo2 {
 		name = "";
 		System.out.println(name.isEmpty());
 		name = "";
-		System.out.println(name.isBlank());
+		System.out.println(name.isEmpty());
 		
 		String str = "        Hi there          ";
 		
