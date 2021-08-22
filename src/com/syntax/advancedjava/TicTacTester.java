@@ -14,15 +14,21 @@ public class TicTacTester {
 		TicTacMethods board = new TicTacMethods();
 
 		// 1) Print board using method:
-		
-		board.printGameBoard(gameBoard);
-		
-		board.playersTurnMethod(gameBoard);
 
-		board.printGameBoard(gameBoard);
+		String whoIsFirst;
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Who is going first: player or computer?");
+		whoIsFirst = scan.next();
+		if (whoIsFirst.equalsIgnoreCase("player")) {
 
-		do {
+			board.printGameBoard(gameBoard);
+
+			board.playersTurnMethod(gameBoard);
+
+			board.printGameBoard(gameBoard);
 			
+		do {
+
 			if (!board.isGameBoardFull(gameBoard)) {
 				break;
 			}
@@ -30,21 +36,47 @@ public class TicTacTester {
 			board.computerTurnMethod(gameBoard);
 
 			board.printGameBoard(gameBoard);
-			
+
 			if (!board.winnerCheck(gameBoard)) {
 				break;
 			}
-			
-			//board.winnerCheck(gameBoard);
-				
+
+			// board.winnerCheck(gameBoard);
+
 			board.playersTurnMethod(gameBoard);
 
 			board.printGameBoard(gameBoard);
 
 		} while (board.winnerCheck(gameBoard));
 
-		}
+	} else if (whoIsFirst.equalsIgnoreCase("computer")){
+		do {
+			
+			board.printGameBoard(gameBoard);
 
+			if (!board.isGameBoardFull(gameBoard)) {
+				break;
+			}
+
+			board.computerTurnMethod(gameBoard);
+
+			board.printGameBoard(gameBoard);
+
+			if (!board.winnerCheck(gameBoard)) {
+				break;
+			}
+
+			// board.winnerCheck(gameBoard);
+
+			board.playersTurnMethod(gameBoard);
+
+			board.printGameBoard(gameBoard);
+
+		} while (board.winnerCheck(gameBoard));
+		
+	} else {
+		System.out.println("Wrong input of first player");
+		
 	}
-
-
+	}
+}
