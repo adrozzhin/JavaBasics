@@ -16,6 +16,7 @@ public class StringDemo {
 		String firstName = "Andrei";
 		String lastName = "Drozzhin";
 		System.out.println(firstName.concat(" ").concat(lastName));
+		int i = lastName.length();
 		
 	}
 

@@ -8,17 +8,37 @@ public class TicTacTester {
 
 	public static void main(String[] args) {
 
-		char gameBoard[][] = { { ' ', '|', ' ', '|', ' ' }, { '-', '+', '-', '+', '-' }, { ' ', '|', ' ', '|', ' ' },
-				{ '-', '+', '-', '+', '-' }, { ' ', '|', ' ', '|', ' ' } };
+		char gameBoard[][] = {{' ', '|', ' ', '|', ' '}, {'-', '+', '-', '+', '-'}, {' ', '|', ' ', '|', ' '},
+				{'-', '+', '-', '+', '-'}, {' ', '|', ' ', '|', ' '}};
 
 		TicTacMethods board = new TicTacMethods();
 
 		// 1) Print board using method:
 
-		String whoIsFirst;
-		Scanner scan = new Scanner(System.in);
-		System.out.println("Who is going first: player or computer?");
-		whoIsFirst = scan.next();
+		boolean startgame=false;
+		String whoIsFirst="";
+
+		do {
+
+			Scanner scan = new Scanner(System.in);
+			System.out.println("Who is going first: player or computer?");
+			whoIsFirst = scan.next();
+			if (whoIsFirst.equalsIgnoreCase("player") || whoIsFirst.equalsIgnoreCase("computer")) {
+				startgame = true;
+			} else {
+				System.out.println("Wrong player choice input. Try again");
+			}
+
+		} while (startgame == false);
+
+//		Scanner scan = new Scanner(System.in);
+//		System.out.println("Who is going first: player or computer?");
+//		whoIsFirst = scan.next();
+//		if (whoIsFirst.equalsIgnoreCase("player") || whoIsFirst.equalsIgnoreCase("computer")) {
+//			startgame = true;
+//		}
+
+
 		if (whoIsFirst.equalsIgnoreCase("player")) {
 
 			board.printGameBoard(gameBoard);
@@ -26,57 +46,54 @@ public class TicTacTester {
 			board.playersTurnMethod(gameBoard);
 
 			board.printGameBoard(gameBoard);
-			
-		do {
 
-			if (!board.isGameBoardFull(gameBoard)) {
-				break;
-			}
+			do {
 
-			board.computerTurnMethod(gameBoard);
+				if (!board.isGameBoardFull(gameBoard)) {
+					break;
+				}
 
-			board.printGameBoard(gameBoard);
+				board.computerTurnMethod(gameBoard);
 
-			if (!board.winnerCheck(gameBoard)) {
-				break;
-			}
+				board.printGameBoard(gameBoard);
 
-			// board.winnerCheck(gameBoard);
+				if (!board.winnerCheck(gameBoard)) {
+					break;
+				}
 
-			board.playersTurnMethod(gameBoard);
+				// board.winnerCheck(gameBoard);
 
-			board.printGameBoard(gameBoard);
+				board.playersTurnMethod(gameBoard);
 
-		} while (board.winnerCheck(gameBoard));
+				board.printGameBoard(gameBoard);
 
-	} else if (whoIsFirst.equalsIgnoreCase("computer")){
-		do {
-			
-			board.printGameBoard(gameBoard);
+			} while (board.winnerCheck(gameBoard));
 
-			if (!board.isGameBoardFull(gameBoard)) {
-				break;
-			}
+		} else {
+			do {
 
-			board.computerTurnMethod(gameBoard);
+				board.printGameBoard(gameBoard);
 
-			board.printGameBoard(gameBoard);
+				if (!board.isGameBoardFull(gameBoard)) {
+					break;
+				}
 
-			if (!board.winnerCheck(gameBoard)) {
-				break;
-			}
+				board.computerTurnMethod(gameBoard);
 
-			// board.winnerCheck(gameBoard);
+				board.printGameBoard(gameBoard);
 
-			board.playersTurnMethod(gameBoard);
+				if (!board.winnerCheck(gameBoard)) {
+					break;
+				}
 
-			board.printGameBoard(gameBoard);
+				// board.winnerCheck(gameBoard);
 
-		} while (board.winnerCheck(gameBoard));
-		
-	} else {
-		System.out.println("Wrong input of first player");
-		
-	}
+				board.playersTurnMethod(gameBoard);
+
+				board.printGameBoard(gameBoard);
+
+			} while (board.winnerCheck(gameBoard));
+
+		}
 	}
 }
